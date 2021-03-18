@@ -1,5 +1,3 @@
-import api from "./api";
-
 export const TOKEN_KEY = "@api-Token";
 export const USER_DATA = "@user-data";
 
@@ -18,10 +16,7 @@ export const setUser = (user) => {
   localStorage.setItem(USER_DATA, JSON.stringify(user));
 };
 
-export const logout = async () => {
-  try {
-    await api.post(`/logout`);
-    localStorage.removeItem(TOKEN_KEY);
-    localStorage.removeItem(USER_DATA);
-  } catch (err) {}
+export const logout = () => {
+  localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(USER_DATA);
 };
