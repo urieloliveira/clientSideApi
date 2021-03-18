@@ -3,6 +3,12 @@ import { getToken } from "./auth";
 
 const server = "https://reqres.in/api/";
 
+const fipeServer = "https://parallelum.com.br/fipe/api/v1/";
+
+const apiFipe = axios.create({
+  baseURL: fipeServer,
+});
+
 const api = axios.create({
   baseURL: server,
 });
@@ -16,4 +22,4 @@ api.interceptors.request.use(async (config) => {
   return config;
 });
 
-export default api;
+export { api as default, apiFipe };
