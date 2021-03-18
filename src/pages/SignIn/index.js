@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button, Link, Typography } from "@material-ui/core";
 
 import api from "../../services/api";
 import { login } from "../../services/auth";
@@ -10,6 +10,7 @@ import { Container, SignInForm } from "./styles";
 
 function SignIn(props) {
   const [error, setError] = useState("");
+
   const validationSchema = Yup.object({
     email: Yup.string().email().required("Campo obrigatório"),
     password: Yup.string().required("Campo obrigatório"),
@@ -37,7 +38,7 @@ function SignIn(props) {
 
   return (
     <Container>
-      <h2>Log in</h2>
+      <Typography variant="h5">Log in</Typography>
       <SignInForm onSubmit={formik.handleSubmit}>
         <TextField
           id="email"
@@ -76,9 +77,9 @@ function SignIn(props) {
         >
           Entrar
         </Button>
-        <a href="/" style={{ textAlign: "center" }}>
+        <Link href="/signUp" style={{ marginTop: 5, textAlign: "center" }}>
           Criar conta
-        </a>
+        </Link>
       </SignInForm>
     </Container>
   );

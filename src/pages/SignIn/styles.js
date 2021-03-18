@@ -7,14 +7,6 @@ export const Container = styled.div`
   justify-content: center;
   width: calc(100vw - 16px);
   height: calc(100vh - 16px);
-
-  & h2 {
-    margin: 0;
-    padding: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-  }
 `;
 
 export const SignInForm = styled.form`
