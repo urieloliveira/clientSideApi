@@ -6,14 +6,16 @@ import {
   Typography,
   TextField,
   Button,
+  ButtonGroup,
 } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 
 import { apiFipe } from "../../services/api";
+import { logout } from "../../services/auth";
 
 import { Container, Content } from "./styles";
 
-function Search() {
+function Search(props) {
   const [vehicle, setVehicle] = useState({
     type: "",
     marca: "",
@@ -67,6 +69,17 @@ function Search() {
 
   return (
     <Container>
+      <ButtonGroup>
+        <Button onClick={() => props.history.push("/")}>Home</Button>
+        <Button
+          onClick={() => {
+            logout();
+            props.history.push("/");
+          }}
+        >
+          Logout
+        </Button>
+      </ButtonGroup>
       <Content>
         <Autocomplete
           options={["carros", "motos", "caminhoes"]}
