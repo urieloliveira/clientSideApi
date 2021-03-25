@@ -10,6 +10,15 @@ export const Container = styled.div`
     background-color: #FFFFFF;
     `;
 
+export const Content = styled.div`
+
+    display: grid;
+    grid-gap: 35px;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: 1.4fr 1fr;
+    margin: 0px 35px
+    `;
+
 export const Header = styled.header`
     padding: 25px 0px;
     width: 100%;
@@ -58,7 +67,7 @@ export const Button_outline= styled.a`
 `;
 
 export const Logo= styled.a`
-    background-image: url(https://www.waze.com/webcms/static/compiled/eab8d17c745136dfb5b5c40fb8b2564a.svg);
+    background-image: url("https://www.waze.com/webcms/static/compiled/eab8d17c745136dfb5b5c40fb8b2564a.svg");
     background-position: center;
     background-repeat: no-repeat;
     margin-right: 40px;
@@ -74,16 +83,21 @@ export const Card= styled.div`
     position: relative;
     padding: 60px 55px 95px;
     border-radius: 10px;
-    & :nth-child(1){
+    &:nth-child(1){
         background: #35CBFC;
         grid-column: 1 / 2;
         grid-row: 1 / 2;
         }
-    & :nth-child(2){
+    &:nth-child(2){
         padding: 0;
         border-radius: 0;
         grid-column: 1 / 2;
         grid-row: 2 / 3;
+    }
+    &:nth-child(3){
+        background: #69e693;
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
     }
 `;
 
