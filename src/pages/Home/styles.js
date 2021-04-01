@@ -142,7 +142,7 @@ export const Icon = styled.a`
   z-index: 1;
 `;
 
-export const Hamburguer_menu = styled.div`
+export const Hamburguer_menu = styled.nav`
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -153,4 +153,16 @@ export const Hamburguer_menu = styled.div`
   padding: 20px;
   z-index: 2;
   background: #3cf;
+`;
+
+export const Hamburger_menu_header= styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const Hamburger_menu_link= styled.ul`
+  list-style: none;
+  padding: 0;
+  margin-bottom: 40px;
 `;

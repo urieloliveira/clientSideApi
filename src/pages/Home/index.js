@@ -16,9 +16,31 @@ import {
   Card_title,
   Card_description,
   Hamburguer_menu,
+  Hamburger_menu_header,
+  Hamburger_menu_link
 } from "./styles";
 
 function Home(props) {
+  <script type="text/javascript">
+            let menu = document.getElementById("hamburger_menu")
+    
+            function toggleMenu(state) {
+                if(state){
+                    menu.animate([
+                        { right: "100vw" },
+                        { right: "0" }
+                    ], { duration: 400 });
+                    menu.style.right = "0";
+                }else {
+                    menu.animate([
+                        { right: "0" },
+                        { right: "100vw" }
+                    ], { duration: 400 });
+                    menu.style.right = "100vw";
+                }
+            }
+        </script>
+
   return (
     <Container>
       <Header>
@@ -124,27 +146,28 @@ function Home(props) {
         </Card>
       </Content>
 
-      {/* <Hamburguer_menu>
-      <div class="hamburger-menu-header">
-          <a class="logo" href="/"></a> 
-          <div class="menu-icon-close" onclick="toggleMenu(false)"></div>
-      </div>
-      <ul class="hamburger-menu-links">
-          <li><a href="/">Waze</a></li>
-          <li><a href="/">Carpool</a></li>
-          <li><a href="/">Parceiros</a></li>
-      </ul>
-      <ul class="hamburger-menu-links">
-          <li><a href="/">Pegue carona</a></li>
-          <li><a href="/">Mapa ao vivo</a></li>
-          <li><a href="/">Baixar</a></li>
-      </ul>
-      <ul class="hamburger-menu-links">
-          <li><a href="/">Suporte</a></li>
-          <li><a onClick={() => props.history.push("/search")}>Login</a></li>
-      </ul>
+        <Hamburguer_menu>
+        <Hamburger_menu_header>
+            <a class="logo" href="/"></a> 
+            <div class="menu-icon-close" onclick="toggleMenu(false)"></div>
+        </Hamburger_menu_header>
+        <Hamburger_menu_link>
+            <li><a href="/">Waze</a></li>
+            <li><a href="/">Carpool</a></li>
+            <li><a href="/">Parceiros</a></li>
+        </Hamburger_menu_link>
+        <Hamburger_menu_link>
+            <li><a href="/">Pegue carona</a></li>
+            <li><a href="/">Mapa ao vivo</a></li>
+            <li><a href="/">Baixar</a></li>
+        </Hamburger_menu_link>
+        <Hamburger_menu_link>
+            <li><a href="/">Suporte</a></li>
+            <li><a onClick={() => props.history.push("/search")}>Login</a></li>
+        </Hamburger_menu_link>
 
-    </Hamburguer_menu> */}
+      </Hamburguer_menu>
+      
     </Container>
   );
 }
