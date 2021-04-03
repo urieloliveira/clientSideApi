@@ -1,3 +1,6 @@
+Angelo Spinardi Netto
+Uriel Guy Sá Teles Oliveira
+
 # Getting Started
 
 Para a inicialização do projeto certifique-se que tenha instalado o [NodeJs](https://nodejs.org/en/download/) e o [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable), todos em suas versões latest.
