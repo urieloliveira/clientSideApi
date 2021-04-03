@@ -47,7 +47,7 @@ export const Menu = styled.nav`
   }
 `;
 
-export const Menu_links = styled.ul`
+export const Menulinks = styled.ul`
   display: flex;
   align-items: center;
   list-style: none;
@@ -73,7 +73,7 @@ export const Menu_links = styled.ul`
   }
 `;
 
-export const Button_outline = styled.a`
+export const Buttonoutline = styled.a`
   text-decoration: none;
   border-radius: 17px;
   padding: 7px 18px;
@@ -89,7 +89,7 @@ export const Logo = styled.a`
   height: 32px;
 `;
 
-export const Menu_Icon_Open = styled.div`
+export const MenuIconOpen = styled.div`
   display: none;
 
   @media (max-width: 910px) {
@@ -167,7 +167,7 @@ export const Card = styled.div`
   }
 `;
 
-export const Card_title = styled.div`
+export const Cardtitle = styled.div`
   font-size: 54px;
   line-height: 1.05;
   margin: 15px 0px;
@@ -177,7 +177,7 @@ export const Card_title = styled.div`
   }
 `;
 
-export const Card_description = styled.p`
+export const Carddescription = styled.p`
   font-size: 24px;
   font-weight: 500;
   line-height: 1.45;
@@ -206,7 +206,7 @@ export const Button = styled.button`
   }
 `;
 
-export const Card_link = styled.a`
+export const Cardlink = styled.a`
   margin: 0;
   color: #000;
   font-size: 20px;
@@ -229,7 +229,7 @@ export const Icon = styled.a`
   z-index: 1;
 `;
 
-export const Hamburguer_menu = styled.nav`
+export const Hamburguermenu = styled.nav`
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -242,13 +242,13 @@ export const Hamburguer_menu = styled.nav`
   background: #3cf;
 `;
 
-export const Hamburger_menu_header = styled.div`
+export const Hamburgermenuheader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-export const Hamburger_menu_link = styled.ul`
+export const Hamburgermenulink = styled.ul`
   list-style: none;
   padding: 0;
   margin-bottom: 40px;
@@ -262,7 +262,7 @@ export const Hamburger_menu_link = styled.ul`
   }
 `;
 
-export const Menu_icon_close = styled.div`
+export const Menuiconclose = styled.div`
   position: relative;
   display: block;
   width: 24px;
