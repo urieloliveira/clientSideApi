@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Content,
@@ -21,22 +21,14 @@ import {
 } from "./styles";
 
 function Home(props) {
-    
-    // let menu = this.Hamburger_menu;
+  const [toggle, setToggle] = useState(false);
 
-
-    
-    // function toggleMenu(state) {
-  
-    //   }
-    
-  
   return (
     <Container>
       <Header>
         <Menu>
           <Logo href="/"></Logo>
-          <Menu_Icon_Open onClick={()=>toggleMenu(true)}></Menu_Icon_Open>
+          <Menu_Icon_Open onClick={() => setToggle(true)}></Menu_Icon_Open>
           <Menu_links>
             <li>Waze</li>
             <li>Carpool</li>
@@ -136,28 +128,42 @@ function Home(props) {
         </Card>
       </Content>
 
-        <Hamburguer_menu>
+      <Hamburguer_menu toggle={toggle}>
         <Hamburger_menu_header>
-            <Logo href="/"></Logo> 
-            <Menu_icon_close onclick="toggleMenu(false)"></Menu_icon_close>
+          <Logo href="/"></Logo>
+          <Menu_icon_close onClick={() => setToggle(false)}></Menu_icon_close>
         </Hamburger_menu_header>
         <Hamburger_menu_link>
-            <li><a href="/">Waze</a></li>
-            <li><a href="/">Carpool</a></li>
-            <li><a href="/">Parceiros</a></li>
+          <li>
+            <a href="/">Waze</a>
+          </li>
+          <li>
+            <a href="/">Carpool</a>
+          </li>
+          <li>
+            <a href="/">Parceiros</a>
+          </li>
         </Hamburger_menu_link>
         <Hamburger_menu_link>
-            <li><a href="/">Pegue carona</a></li>
-            <li><a href="/">Mapa ao vivo</a></li>
-            <li><a href="/">Baixar</a></li>
+          <li>
+            <a href="/">Pegue carona</a>
+          </li>
+          <li>
+            <a href="/">Mapa ao vivo</a>
+          </li>
+          <li>
+            <a href="/">Baixar</a>
+          </li>
         </Hamburger_menu_link>
         <Hamburger_menu_link>
-            <li><a href="/">Suporte</a></li>
-            <li><a onClick={() => props.history.push("/search")}>Login</a></li>
+          <li>
+            <a href="/">Suporte</a>
+          </li>
+          <li>
+            <a onClick={() => props.history.push("/search")}>Entrar</a>
+          </li>
         </Hamburger_menu_link>
-
       </Hamburguer_menu>
-      
     </Container>
   );
 }
