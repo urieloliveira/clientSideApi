@@ -26,9 +26,9 @@ function Home(props) {
 
 
     
-    // function toggleMenu(state) {
+    function toggleMenu(state) {
   
-    //   }
+    }
     
   
   return (
