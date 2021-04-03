@@ -4,7 +4,6 @@ import {
   Content,
   Card_link,
   Icon,
-  icon_rigth,
   Button,
   Menu,
   Header,
@@ -12,41 +11,32 @@ import {
   Button_outline,
   Logo,
   Menu_Icon_Open,
+  Menu_icon_close,
   Card,
   Card_title,
   Card_description,
   Hamburguer_menu,
   Hamburger_menu_header,
-  Hamburger_menu_link
+  Hamburger_menu_link,
 } from "./styles";
 
 function Home(props) {
-  <script type="text/javascript">
-            let menu = document.getElementById("hamburger_menu")
     
-            function toggleMenu(state) {
-                if(state){
-                    menu.animate([
-                        { right: "100vw" },
-                        { right: "0" }
-                    ], { duration: 400 });
-                    menu.style.right = "0";
-                }else {
-                    menu.animate([
-                        { right: "0" },
-                        { right: "100vw" }
-                    ], { duration: 400 });
-                    menu.style.right = "100vw";
-                }
-            }
-        </script>
+    // let menu = this.Hamburger_menu;
 
+
+    
+    // function toggleMenu(state) {
+  
+    //   }
+    
+  
   return (
     <Container>
       <Header>
         <Menu>
           <Logo href="/"></Logo>
-          <Menu_Icon_Open onclick="toggleMenu(true)"></Menu_Icon_Open>
+          <Menu_Icon_Open onClick={()=>toggleMenu(true)}></Menu_Icon_Open>
           <Menu_links>
             <li>Waze</li>
             <li>Carpool</li>
@@ -148,8 +138,8 @@ function Home(props) {
 
         <Hamburguer_menu>
         <Hamburger_menu_header>
-            <a class="logo" href="/"></a> 
-            <div class="menu-icon-close" onclick="toggleMenu(false)"></div>
+            <Logo href="/"></Logo> 
+            <Menu_icon_close onclick="toggleMenu(false)"></Menu_icon_close>
         </Hamburger_menu_header>
         <Hamburger_menu_link>
             <li><a href="/">Waze</a></li>

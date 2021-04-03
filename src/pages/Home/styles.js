@@ -16,12 +16,21 @@ export const Content = styled.div`
   grid-template-columns: 1.5fr 1fr;
   grid-template-rows: 1.4fr 1fr;
   margin: 0px 35px;
+  @media (max-width: 910px) {
+    grid-gap: 25px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 0.7fr 2.6fr;
+    margin: 0px 25px;
+    }
 `;
 
 export const Header = styled.header`
   padding: 25px 0px;
   width: 100%;
   z-index: 2;
+  @media (max-width: 910px) {
+    padding: 20px 0px;
+  }
 `;
 
 export const Menu = styled.nav`
@@ -32,6 +41,10 @@ export const Menu = styled.nav`
   width: calc(100%-60px);
   margin: 0 30px;
   padding: 0;
+
+  @media (max-width: 910px) {
+    margin: 0 20px;
+  }
 `;
 
 export const Menu_links = styled.ul`
@@ -54,6 +67,10 @@ export const Menu_links = styled.ul`
     flex: 1;
     justify-content: flex-end;
   }
+
+  @media (max-width: 910px) {
+    display: none;
+  }
 `;
 
 export const Button_outline = styled.a`
@@ -74,6 +91,40 @@ export const Logo = styled.a`
 
 export const Menu_Icon_Open = styled.div`
   display: none;
+
+  @media (max-width: 910px) {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 12px;
+  }
+
+  ::after{
+
+    @media (max-width: 910px) {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #333665;
+    }
+
+  }
+
+  ::before{
+    @media (max-width: 910px) {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #333665;
+    }
+  }
+
 `;
 
 export const Card = styled.div`
@@ -81,27 +132,53 @@ export const Card = styled.div`
   padding: 60px 55px 95px;
   border-radius: 10px;
   &:nth-child(1) {
+    @media (max-width: 910px) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
     background: #35cbfc;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
   }
   &:nth-child(2) {
+    @media (max-width: 910px) {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+
     padding: 0;
     border-radius: 0;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
   }
   &:nth-child(3) {
+    @media (max-width: 910px) {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+    }
+
     background: #69e693;
     grid-column: 2 / 3;
     grid-row: 1 / 3;
   }
+
+  @media (max-width: 910px) {
+    position: relative;
+    padding: 40px 30px 75px;
+    border-radius: 10px;
+    }
 `;
 
 export const Card_title = styled.div`
   font-size: 54px;
   line-height: 1.05;
   margin: 15px 0px;
+
+  @media (max-width: 910px) {
+    font-size: 33px;
+  }
 `;
 
 export const Card_description = styled.p`
@@ -109,6 +186,11 @@ export const Card_description = styled.p`
   font-weight: 500;
   line-height: 1.45;
   margin: 0px 0px 25px 0px;
+
+  @media (max-width: 910px) {
+    font-size: 18px;
+    line-height: 1.35;
+  }
 `;
 
 export const Button = styled.button`
@@ -121,6 +203,11 @@ export const Button = styled.button`
   padding: 15px 40px;
   cursor: pointer;
   background: #ffffff;
+  
+  @media (max-width: 910px) {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
 `;
 
 export const Card_link = styled.a`
@@ -133,6 +220,11 @@ export const Card_link = styled.a`
   border-bottom-width: 2px;
   border-bottom-style: solid;
   border-bottom-color: #000;
+
+  @media (max-width: 910px) {
+    font-size: 16px;
+  }
+  
 `;
 
 export const Icon = styled.a`
@@ -165,4 +257,45 @@ export const Hamburger_menu_link= styled.ul`
   list-style: none;
   padding: 0;
   margin-bottom: 40px;
+
+  & li a{
+    font-size: 28px;
+    font-weight: 700;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
 `;
+
+export const Menu_icon_close=styled.div`
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 12px;
+  cursor: pointer;  
+  ::after{
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: rotate(-45deg);
+    background-color: #fff;
+  }
+
+  ::before{
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: rotate(45deg);
+    background-color: #fff;
+  }
+`;
+
+
+
+
