@@ -22,6 +22,7 @@ function Search(props) {
     modelo: "",
     ano: "",
   });
+  
   const [marcas, setMarcas] = useState([]);
   const [modelos, setModelos] = useState([]);
   const [anos, setAnos] = useState([]);
