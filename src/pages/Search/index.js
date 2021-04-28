@@ -22,7 +22,7 @@ function Search(props) {
     modelo: "",
     ano: "",
   });
-  
+
   const [marcas, setMarcas] = useState([]);
   const [modelos, setModelos] = useState([]);
   const [anos, setAnos] = useState([]);
@@ -69,135 +69,136 @@ function Search(props) {
   }
 
   return (
-    <Container>
-      <ButtonGroup>
-        <Button onClick={() => props.history.push("/")}>Home</Button>
-        <Button
-          onClick={() => {
-            logout();
-            props.history.push("/");
-          }}
-        >
-          Logout
-        </Button>
-      </ButtonGroup>
-      <Content>
-        <Autocomplete
-          options={["carros", "motos", "caminhoes"]}
-          getOptionLabel={(option) => option}
-          value={vehicle.type}
-          onChange={(event, newValue) => {
-            newValue && setVehicle({ type: newValue });
-            newValue && getMarcas(newValue);
-          }}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Informe o tipo de veiculo"
-              variant="filled"
-            />
-          )}
-        />
-        {vehicle.type && (
-          <Autocomplete
-            options={marcas}
-            getOptionLabel={(option) => option.nome}
-            value={vehicle.marca}
-            onChange={(event, newValue) => {
-              newValue &&
-                setVehicle({ type: vehicle.type, marca: newValue.codigo });
-              newValue && getModelos(vehicle.type, newValue.codigo);
+    <div style={{position:"absolute", width:'100%',zIndex:'1',height:'1300px', backgroundColor:'#FFFFFF',  top:'0', display:props.openSearch? 'flex':'none'}}>
+      <Container>
+        <ButtonGroup>
+          <Button onClick={() => props.setOpenSearch(false)}>Home</Button>
+          <Button
+            onClick={() => {
+              logout();
             }}
-            renderInput={(params) => (
-              <TextField {...params} label="Informe o marca" variant="filled" />
-            )}
-          />
-        )}
-        {vehicle.marca && (
+          >
+            Logout
+          </Button>
+        </ButtonGroup>
+        <Content>
           <Autocomplete
-            options={modelos}
-            getOptionLabel={(option) => option.nome}
-            value={vehicle.modelo}
+            options={["carros", "motos", "caminhoes"]}
+            getOptionLabel={(option) => option}
+            value={vehicle.type}
             onChange={(event, newValue) => {
-              newValue &&
-                setVehicle({
-                  type: vehicle.type,
-                  marca: vehicle.marca,
-                  modelo: newValue.codigo,
-                });
-              newValue && getAnos(vehicle.type, vehicle.marca, newValue.codigo);
+              newValue && setVehicle({ type: newValue });
+              newValue && getMarcas(newValue);
             }}
             renderInput={(params) => (
               <TextField
                 {...params}
-                label="Informe o modelo"
+                label="Informe o tipo de veiculo"
                 variant="filled"
               />
             )}
           />
-        )}
+          {vehicle.type && (
+            <Autocomplete
+              options={marcas}
+              getOptionLabel={(option) => option.nome}
+              value={vehicle.marca}
+              onChange={(event, newValue) => {
+                newValue &&
+                  setVehicle({ type: vehicle.type, marca: newValue.codigo });
+                newValue && getModelos(vehicle.type, newValue.codigo);
+              }}
+              renderInput={(params) => (
+                <TextField {...params} label="Informe o marca" variant="filled" />
+              )}
+            />
+          )}
+          {vehicle.marca && (
+            <Autocomplete
+              options={modelos}
+              getOptionLabel={(option) => option.nome}
+              value={vehicle.modelo}
+              onChange={(event, newValue) => {
+                newValue &&
+                  setVehicle({
+                    type: vehicle.type,
+                    marca: vehicle.marca,
+                    modelo: newValue.codigo,
+                  });
+                newValue && getAnos(vehicle.type, vehicle.marca, newValue.codigo);
+              }}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Informe o modelo"
+                  variant="filled"
+                />
+              )}
+            />
+          )}
 
-        {vehicle.modelo && (
-          <Autocomplete
-            options={anos}
-            getOptionLabel={(option) => option.nome}
-            value={vehicle.ano}
-            onChange={(event, newValue) => {
-              newValue &&
-                setVehicle({
-                  type: vehicle.type,
-                  ...vehicle,
-                  ano: newValue.codigo,
-                });
-              newValue &&
-                getVeiculo(
-                  vehicle.type,
-                  vehicle.marca,
-                  vehicle.modelo,
-                  newValue.codigo
-                );
-            }}
-            renderInput={(params) => (
-              <TextField {...params} label="Informe o ano" variant="filled" />
-            )}
-          />
-        )}
-        {veiculo && (
-          <Card
-            elevation={3}
-            style={{
-              marginTop: 50,
-              position: "relative",
-            }}
-          >
-            <CardContent style={{ zIndex: 5 }}>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "flex-start",
-                }}
-              >
-                <Typography variant="h6">{veiculo.Marca}</Typography>
-                <Typography>{veiculo.CodigoFipe}</Typography>
-              </div>
-              <Typography variant="h5">{veiculo.Modelo}</Typography>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <Typography>Ano: {veiculo.AnoModelo}</Typography>
-                <Typography>{veiculo.Combustivel}</Typography>
-              </div>
-            </CardContent>
-            <CardContent style={{ backgroundColor: "#49CCFF" }}>
-              <Typography>Preço médio:</Typography>
-              <Typography variant="h4">{veiculo.Valor}</Typography>
-              <Typography>
-                Mês de referência: {veiculo.MesReferencia}
-              </Typography>
-            </CardContent>
-          </Card>
-        )}
-      </Content>
-    </Container>
+          {vehicle.modelo && (
+            <Autocomplete
+              options={anos}
+              getOptionLabel={(option) => option.nome}
+              value={vehicle.ano}
+              onChange={(event, newValue) => {
+                newValue &&
+                  setVehicle({
+                    type: vehicle.type,
+                    ...vehicle,
+                    ano: newValue.codigo,
+                  });
+                newValue &&
+                  getVeiculo(
+                    vehicle.type,
+                    vehicle.marca,
+                    vehicle.modelo,
+                    newValue.codigo
+                  );
+              }}
+              renderInput={(params) => (
+                <TextField {...params} label="Informe o ano" variant="filled" />
+              )}
+            />
+          )}
+          {veiculo && (
+            <Card
+              elevation={3}
+              style={{
+                marginTop: 50,
+                position: "relative",
+              }}
+            >
+              <CardContent style={{ zIndex: 5 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                  }}
+                >
+                  <Typography variant="h6">{veiculo.Marca}</Typography>
+                  <Typography>{veiculo.CodigoFipe}</Typography>
+                </div>
+                <Typography variant="h5">{veiculo.Modelo}</Typography>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                  <Typography>Ano: {veiculo.AnoModelo}</Typography>
+                  <Typography>{veiculo.Combustivel}</Typography>
+                </div>
+              </CardContent>
+              <CardContent style={{ backgroundColor: "#49CCFF" }}>
+                <Typography>Preço médio:</Typography>
+                <Typography variant="h4">{veiculo.Valor}</Typography>
+                <Typography>
+                  Mês de referência: {veiculo.MesReferencia}
+                </Typography>
+              </CardContent>
+            </Card>
+          )}
+        </Content>
+      </Container>
+    </div>
   );
 }
 

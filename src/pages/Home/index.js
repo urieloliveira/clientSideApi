@@ -20,8 +20,13 @@ import {
   Hamburgermenuheader,
   Hamburgermenulink,
 } from "./styles";
+import SignIn from '../SignIn/index' 
+import Search from '../Search/index'
+import { isAuthenticated } from "../../services/auth";
 
 function Home(props) {
+  const [openSignIn,setOpenSignIn]=useState(false)
+  const [openSearch,setOpenSearch]=useState(false)
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -40,7 +45,7 @@ function Home(props) {
             <li>Mapa ao vivo</li>
             <li>Baixar</li>
             <li>
-              <Buttonoutline onClick={() => props.history.push("/search")}>
+              <Buttonoutline onClick={() => isAuthenticated()? setOpenSearch(true) : setOpenSignIn(true)}>
                 Entrar
               </Buttonoutline>
             </li>
@@ -165,6 +170,10 @@ function Home(props) {
           </li>
         </Hamburgermenulink>
       </Hamburguermenu>
+
+      <SignIn openSignIn={openSignIn} setOpenSignIn={()=>setOpenSignIn()} />
+      <Search openSearch={openSearch} setOpenSearch={()=>setOpenSearch()} />
+
     </Container>
   );
 }
