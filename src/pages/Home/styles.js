@@ -21,7 +21,7 @@ export const Content = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: 2fr 0.7fr 2.6fr;
     margin: 0px 25px;
-    }
+  }
 `;
 
 export const Header = styled.header`
@@ -47,7 +47,7 @@ export const Menu = styled.nav`
   }
 `;
 
-export const Menu_links = styled.ul`
+export const Menulinks = styled.ul`
   display: flex;
   align-items: center;
   list-style: none;
@@ -73,7 +73,7 @@ export const Menu_links = styled.ul`
   }
 `;
 
-export const Button_outline = styled.a`
+export const Buttonoutline = styled.a`
   text-decoration: none;
   border-radius: 17px;
   padding: 7px 18px;
@@ -89,7 +89,7 @@ export const Logo = styled.a`
   height: 32px;
 `;
 
-export const Menu_Icon_Open = styled.div`
+export const MenuIconOpen = styled.div`
   display: none;
 
   @media (max-width: 910px) {
@@ -99,8 +99,7 @@ export const Menu_Icon_Open = styled.div`
     height: 12px;
   }
 
-  ::after{
-
+  ::after {
     @media (max-width: 910px) {
       content: "";
       position: absolute;
@@ -110,10 +109,9 @@ export const Menu_Icon_Open = styled.div`
       height: 2px;
       background-color: #333665;
     }
-
   }
 
-  ::before{
+  ::before {
     @media (max-width: 910px) {
       content: "";
       position: absolute;
@@ -124,7 +122,6 @@ export const Menu_Icon_Open = styled.div`
       background-color: #333665;
     }
   }
-
 `;
 
 export const Card = styled.div`
@@ -147,7 +144,6 @@ export const Card = styled.div`
       grid-row: 2 / 3;
     }
 
-
     padding: 0;
     border-radius: 0;
     grid-column: 1 / 2;
@@ -168,10 +164,10 @@ export const Card = styled.div`
     position: relative;
     padding: 40px 30px 75px;
     border-radius: 10px;
-    }
+  }
 `;
 
-export const Card_title = styled.div`
+export const Cardtitle = styled.div`
   font-size: 54px;
   line-height: 1.05;
   margin: 15px 0px;
@@ -181,7 +177,7 @@ export const Card_title = styled.div`
   }
 `;
 
-export const Card_description = styled.p`
+export const Carddescription = styled.p`
   font-size: 24px;
   font-weight: 500;
   line-height: 1.45;
@@ -203,14 +199,14 @@ export const Button = styled.button`
   padding: 15px 40px;
   cursor: pointer;
   background: #ffffff;
-  
+
   @media (max-width: 910px) {
     font-size: 16px;
     padding: 12px 25px;
   }
 `;
 
-export const Card_link = styled.a`
+export const Cardlink = styled.a`
   margin: 0;
   color: #000;
   font-size: 20px;
@@ -224,7 +220,6 @@ export const Card_link = styled.a`
   @media (max-width: 910px) {
     font-size: 16px;
   }
-  
 `;
 
 export const Icon = styled.a`
@@ -234,12 +229,12 @@ export const Icon = styled.a`
   z-index: 1;
 `;
 
-export const Hamburguer_menu = styled.nav`
+export const Hamburguermenu = styled.nav`
   position: fixed;
   display: flex;
   flex-direction: column;
   top: 0;
-  right: 100vw;
+  right: ${({ toggle }) => (toggle ? 0 : "100vw")};
   height: calc(100vh - 40px);
   width: calc(100vw - 40px);
   padding: 20px;
@@ -247,18 +242,18 @@ export const Hamburguer_menu = styled.nav`
   background: #3cf;
 `;
 
-export const Hamburger_menu_header= styled.div`
+export const Hamburgermenuheader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-export const Hamburger_menu_link= styled.ul`
+export const Hamburgermenulink = styled.ul`
   list-style: none;
   padding: 0;
   margin-bottom: 40px;
 
-  & li a{
+  & li a {
     font-size: 28px;
     font-weight: 700;
     text-decoration: none;
@@ -267,13 +262,13 @@ export const Hamburger_menu_link= styled.ul`
   }
 `;
 
-export const Menu_icon_close=styled.div`
+export const Menuiconclose = styled.div`
   position: relative;
   display: block;
   width: 24px;
   height: 12px;
-  cursor: pointer;  
-  ::after{
+  cursor: pointer;
+  ::after {
     content: "";
     position: absolute;
     top: 5px;
@@ -284,7 +279,7 @@ export const Menu_icon_close=styled.div`
     background-color: #fff;
   }
 
-  ::before{
+  ::before {
     content: "";
     position: absolute;
     top: 5px;
@@ -295,7 +290,3 @@ export const Menu_icon_close=styled.div`
     background-color: #fff;
   }
 `;
-
-
-
-

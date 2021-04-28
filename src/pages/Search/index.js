@@ -1,40 +1,55 @@
-import React, { useEffect, useState } from "react";
-import { Button } from "@material-ui/core";
+import React, { useState } from "react";
+
+import {
+  Card,
+  CardContent,
+  Typography,
+  TextField,
+  Button,
+  ButtonGroup,
+} from "@material-ui/core";
 
 import { apiFipe } from "../../services/api";
+import { logout } from "../../services/auth";
 
 import { Container } from "./styles";
 import zIndex from "@material-ui/core/styles/zIndex";
 
+
 function Search(props) {
+  const [vehicle, setVehicle] = useState({
+    type: "",
+    marca: "",
+    modelo: "",
+    ano: "",
+  });
   const [marcas, setMarcas] = useState([]);
   const [modelos, setModelos] = useState([]);
   const [anos, setAnos] = useState([]);
-  const [veiculo, setVeiculo] = useState({});
+  const [veiculo, setVeiculo] = useState();
 
-  async function getMarcas() {
+  async function getMarcas(type) {
     try {
-      const res = await apiFipe.get("/carros/marcas");
+      const res = await apiFipe.get(`/${type}/marcas`);
       setMarcas(res.data);
     } catch (err) {
       console.log(err);
     }
   }
 
-  async function getModelos(marcaId) {
+  async function getModelos(type, marcaId) {
     try {
-      const res = await apiFipe.get(`/carros/marcas/${marcaId}/modelos`);
+      const res = await apiFipe.get(`/${type}/marcas/${marcaId}/modelos`);
       setModelos(res.data.modelos);
-      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
   }
 
-  async function getAnos(marcaId, modeloId) {
+  async function getAnos(type, marcaId, modeloId) {
     try {
       const res = await apiFipe.get(
-        `/carros/marcas/${marcaId}/modelos/${modeloId}/anos/`
+        `/${type}/marcas/${marcaId}/modelos/${modeloId}/anos`
       );
       setAnos(res.data);
     } catch (err) {
@@ -42,20 +57,16 @@ function Search(props) {
     }
   }
 
-  async function getVeiculo(marcaId, modeloId, anoId) {
+  async function getVeiculo(type, marcaId, modeloId, anoId) {
     try {
       const res = await apiFipe.get(
-        `/carros/marcas/${marcaId}/modelos/${modeloId}/anos/${anoId}`
+        `/${type}/marcas/${marcaId}/modelos/${modeloId}/anos/${anoId}`
       );
       setVeiculo(res.data);
     } catch (err) {
       console.log(err);
     }
   }
-
-  useEffect(() => {
-    getMarcas();
-  }, []);
 
   return (
     <div style={{position:"absolute", width:'100%',zIndex:'1',height:'1300px', backgroundColor:'#FFFFFF',  top:'0', display:props.openSearch? 'flex':'none'}}>

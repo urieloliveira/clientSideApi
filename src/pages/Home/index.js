@@ -1,25 +1,25 @@
-import React from "react";
+import { Link } from "@material-ui/core";
+import React, { useState } from "react";
 import {
   Container,
   Content,
-  Card_link,
+  Cardlink,
   Icon,
   Button,
   Menu,
   Header,
-  Menu_links,
-  Button_outline,
+  Menulinks,
+  Buttonoutline,
   Logo,
-  Menu_Icon_Open,
-  Menu_icon_close,
+  MenuIconOpen,
+  Menuiconclose,
   Card,
-  Card_title,
-  Card_description,
-  Hamburguer_menu,
-  Hamburger_menu_header,
-  Hamburger_menu_link,
+  Cardtitle,
+  Carddescription,
+  Hamburguermenu,
+  Hamburgermenuheader,
+  Hamburgermenulink,
 } from "./styles";
-import { useState } from "react";
 import SignIn from '../SignIn/index' 
 import Search from '../Search/index'
 import { isAuthenticated } from "../../services/auth";
@@ -27,6 +27,8 @@ import { isAuthenticated } from "../../services/auth";
 function Home(props) {
     const [openSignIn,setOpenSignIn]=useState(false)
     const [openSearch,setOpenSearch]=useState(false)
+    
+    const [toggle, setToggle] = useState(false);
     
     function toggleMenu(state) {
   
@@ -38,22 +40,22 @@ function Home(props) {
       <Header>
         <Menu>
           <Logo href="/"></Logo>
-          <Menu_Icon_Open onClick={()=>toggleMenu(true)}></Menu_Icon_Open>
-          <Menu_links>
+          <MenuIconOpen onClick={() => setToggle(true)}></MenuIconOpen>
+          <Menulinks>
             <li>Waze</li>
             <li>Carpool</li>
             <li>Parceiros</li>
-          </Menu_links>
-          <Menu_links>
+          </Menulinks>
+          <Menulinks>
             <li>Pegue carona</li>
             <li>Mapa ao vivo</li>
             <li>Baixar</li>
             <li>
-              <Button_outline onClick={() => isAuthenticated()? setOpenSearch(true) : setOpenSignIn(true)}>
+              <Buttonoutline onClick={() => isAuthenticated()? setOpenSearch(true) : setOpenSignIn(true)}>
                 Entrar
-              </Button_outline>
+              </Buttonoutline>
             </li>
-          </Menu_links>
+          </Menulinks>
         </Menu>
       </Header>
       <Content>
@@ -63,12 +65,12 @@ function Home(props) {
             alt=""
             class="card-logo"
           />
-          <Card_title>Um mundo com menos trânsito é possível</Card_title>
-          <Card_description>
+          <Cardtitle>Um mundo com menos trânsito é possível</Cardtitle>
+          <Carddescription>
             Seja uma das +130 milhões de pessoas que ajudam a construí-lo.
-          </Card_description>
+          </Carddescription>
           <Button>Baixar</Button>
-          <Card_link href="">Saiba mais</Card_link>
+          <Cardlink href="">Saiba mais</Cardlink>
           <Icon
             style={{
               right: "60px",
@@ -122,13 +124,13 @@ function Home(props) {
             src="https://kstatic.googleusercontent.com/files/384118d36070d9761c18af9f59bb8edf71ef2b43199786d77368ffcdfc0ad28ce4fa59ee9366e0fc446cf8aa2019b59575c7fd1fe5181ad4b10e01a7bbadf01b"
             alt=""
           />
-          <Card_title>Compartilhe pedágios, combustível e conversas</Card_title>
-          <Card_description>
+          <Cardtitle>Compartilhe pedágios, combustível e conversas</Cardtitle>
+          <Carddescription>
             Tem um assento vazio no seu carro? Precisa de carona? Divida o
             trajeto com quem está indo para o mesmo destino.
-          </Card_description>
+          </Carddescription>
           <Button>Baixar</Button>
-          <Card_link>Saiba mais</Card_link>
+          <Cardlink>Saiba mais</Cardlink>
           <Icon>
             <img
               src="https://kstatic.googleusercontent.com/files/8db732783ede471cf6c6afce2a3e9f4d61da6122a7fd71f04b745c1fe104473a1fd2dfe43718b78a1dda7c8717c70a1024acf0d62c0cc916ba645f1da50d573a"
@@ -138,27 +140,27 @@ function Home(props) {
         </Card>
       </Content>
 
-        <Hamburguer_menu>
-        <Hamburger_menu_header>
+        <Hamburguermenu>
+        <Hamburgermenuheader>
             <Logo href="/"></Logo> 
-            <Menu_icon_close onclick="toggleMenu(false)"></Menu_icon_close>
-        </Hamburger_menu_header>
-        <Hamburger_menu_link>
+            <Menuiconclose onclick="toggleMenu(false)"></Menuiconclose>
+        </Hamburgermenuheader>
+        <Hamburgermenulink>
             <li><a href="/">Waze</a></li>
             <li><a href="/">Carpool</a></li>
             <li><a href="/">Parceiros</a></li>
-        </Hamburger_menu_link>
-        <Hamburger_menu_link>
+        </Hamburgermenulink>
+        <Hamburgermenulink>
             <li><a href="/">Pegue carona</a></li>
             <li><a href="/">Mapa ao vivo</a></li>
             <li><a href="/">Baixar</a></li>
-        </Hamburger_menu_link>
-        <Hamburger_menu_link>
+        </Hamburgermenulink>
+        <Hamburgermenulink>
             <li><a href="/">Suporte</a></li>
             <li><a onClick={() => props.history.push("/search")}>Login</a></li>
-        </Hamburger_menu_link>
+        </Hamburgermenulink>
 
-      </Hamburguer_menu>
+      </Hamburguermenu>
       
       <SignIn openSignIn={openSignIn} setOpenSignIn={()=>setOpenSignIn()} />
       <Search openSearch={openSearch} setOpenSearch={()=>setOpenSearch()} />
