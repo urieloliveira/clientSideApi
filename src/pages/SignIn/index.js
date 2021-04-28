@@ -37,51 +37,53 @@ function SignIn(props) {
   });
 
   return (
-    <Container>
-      <Typography variant="h5">Log in</Typography>
-      <SignInForm onSubmit={formik.handleSubmit}>
-        <TextField
-          id="email"
-          name="email"
-          type="text"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          variant="filled"
-          autoFocus
-          label="Informe o email"
-          error={formik.errors.email || error}
-          helperText={
-            formik.errors.email || error ? formik.errors.email || error : null
-          }
-        />
-        <TextField
-          id="password"
-          name="password"
-          type="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          variant="filled"
-          label="Informe a senha"
-          error={formik.errors.password || error}
-          helperText={
-            formik.errors.password || error
-              ? formik.errors.password || error
-              : null
-          }
-        />
-        <Button
-          variant="contained"
-          color="primary"
-          type="submit"
-          style={{ width: "100%" }}
-        >
-          Entrar
-        </Button>
-        <Link href="/signUp" style={{ marginTop: 5, textAlign: "center" }}>
-          Criar conta
-        </Link>
-      </SignInForm>
-    </Container>
+    <div style={{position:"absolute",zIndex:'1',height:'1300px', backgroundColor:'#FFFFFF',  top:'0', display:props.openSignIn? 'flex':'none'}}>
+      <Container >
+        <Typography variant="h5">Log in</Typography>
+        <SignInForm onSubmit={formik.handleSubmit}>
+          <TextField
+            id="email"
+            name="email"
+            type="text"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            variant="filled"
+            autoFocus
+            label="Informe o email"
+            error={formik.errors.email || error}
+            helperText={
+              formik.errors.email || error ? formik.errors.email || error : null
+            }
+          />
+          <TextField
+            id="password"
+            name="password"
+            type="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            variant="filled"
+            label="Informe a senha"
+            error={formik.errors.password || error}
+            helperText={
+              formik.errors.password || error
+                ? formik.errors.password || error
+                : null
+            }
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            style={{ width: "100%" }}
+          >
+            Entrar
+          </Button>
+          <Link href="/signUp" style={{ marginTop: 5, textAlign: "center" }}>
+            Criar conta
+          </Link>
+        </SignInForm>
+      </Container>
+    </div>
   );
 }
 

@@ -4,8 +4,9 @@ import { Button } from "@material-ui/core";
 import { apiFipe } from "../../services/api";
 
 import { Container } from "./styles";
+import zIndex from "@material-ui/core/styles/zIndex";
 
-function Search() {
+function Search(props) {
   const [marcas, setMarcas] = useState([]);
   const [modelos, setModelos] = useState([]);
   const [anos, setAnos] = useState([]);
@@ -57,32 +58,34 @@ function Search() {
   }, []);
 
   return (
-    <Container>
-      {marcas.map((marca) => (
-        <Button
-          variant="contained"
-          key={marca.codigo}
-          onClick={() => getModelos(marca.codigo)}
-        >
-          {marca.nome}
-        </Button>
-      ))}
-      <br /> <br /> <br /> <br />
-      {modelos.map((modelo) => (
-        <Button variant="contained" key={modelo.codigo}>
-          {modelo.nome}
-        </Button>
-      ))}
-      {/* {anos.map((ano) => (
-        <Button variant="contained" key={ano.codigo}>
-          {ano.nome}
-        </Button>
-      ))}
+    <div style={{position:"absolute", width:'100%',zIndex:'1',height:'1300px', backgroundColor:'#FFFFFF',  top:'0', display:props.openSearch? 'flex':'none'}}>
+      <Container>
+        {marcas.map((marca) => (
+          <Button
+            variant="contained"
+            key={marca.codigo}
+            onClick={() => getModelos(marca.codigo)}
+          >
+            {marca.nome}
+          </Button>
+        ))}
+        <br /> <br /> <br /> <br />
+        {modelos.map((modelo) => (
+          <Button variant="contained" key={modelo.codigo}>
+            {modelo.nome}
+          </Button>
+        ))}
+        {/* {anos.map((ano) => (
+          <Button variant="contained" key={ano.codigo}>
+            {ano.nome}
+          </Button>
+        ))}
 
-      <Button variant="contained" key={veiculo.codigo}>
-        {veiculo.nome}
-      </Button> */}
-    </Container>
+        <Button variant="contained" key={veiculo.codigo}>
+          {veiculo.nome}
+        </Button> */}
+      </Container>
+    </div>
   );
 }
 
